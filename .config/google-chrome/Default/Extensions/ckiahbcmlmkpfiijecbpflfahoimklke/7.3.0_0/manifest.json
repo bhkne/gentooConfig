@@ -1,0 +1,36 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "vendor/bower/moment/min/moment.min.js", "vendor/aes.js", "vendor/bower/jquery/dist/jquery.min.js", "vendor/analytics.js", "gom.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "19": "assets/images/icon-19.png",
+         "38": "assets/images/icon-38.png"
+      },
+      "default_title": "Toggle Gom VPN"
+   },
+   "content_scripts": [ {
+      "js": [ "/vendor/oauth2/oauth2_inject.js" ],
+      "matches": [ "http://www.google.com/robots.txt*", "https://www.google.com/robots.txt*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'; ",
+   "description": "Quickly access blocked sites securely",
+   "icons": {
+      "128": "assets/images/icon128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs6EcVhws4sw1GXmxBkHOGBKFl/vBVo0vhLkKZh+6tMdDqmS21M8I3/Sf5hvokgHzlSvlYrAYjOIi/PDxvbyCLvAFVs83cmftVOU7Z9mLJm5RWKOUOC5SswU3C1wFP4uEs+LI5yqd812M9KZ8eoHrGfboSOfArJ/dcgwnAgfFu3ZMWd3y75dQ5QjK7md0ZH12fIOrr10xsY6VBemsgl1hQ1zvCMe/Iw/xgftXGt0f91oQlcNGLqmbZ48D1yvM0/z8wHufOJLfwBJcjLtu7gN3WoGydPOYWGaPBp9Gu9leqWYlL9fhnDy1I92aUEg+9sdTwSeXsuFH5g22PYg9yakIOwIDAQAB",
+   "manifest_version": 2,
+   "name": "Gom VPN - Bypass and unblock",
+   "oauth2": {
+      "client_id": "276771460617-5tb4upsb72g8qai11204l33vp5l6dr67.apps.googleusercontent.com",
+      "scopes": [ "https://www.googleapis.com/auth/contacts.readonly" ]
+   },
+   "options_page": "pages/options.html",
+   "permissions": [ "proxy", "storage", "notifications", "tabs", "cookies", "webNavigation", "webRequest", "webRequestBlocking", "http://*/*", "https://*/*", "identity" ],
+   "short_name": "Gom",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "7.3.0",
+   "web_accessible_resources": [ "/vendor/oauth2/oauth2.html" ]
+}

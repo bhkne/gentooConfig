@@ -1,0 +1,16 @@
+2017/10/24-16:58:40.542 2304 Reusing MANIFEST leveldb/MANIFEST-000001
+2017/10/24-16:58:40.597 2304 Recovering log #69
+2017/10/24-16:58:40.683 2304 Reusing old log leveldb/000069.log 
+2017/10/24-17:03:48.839 3507 Level-0 table #73: started
+2017/10/24-17:03:48.969 3507 Level-0 table #73: 285223 bytes OK
+2017/10/24-17:03:49.025 3507 Delete type=0 #69
+2017/10/24-17:03:49.026 3578 Compacting 4@0 + 1@1 files
+2017/10/24-17:03:49.192 3578 Generated table #74@0: 1343 keys, 2104816 bytes
+2017/10/24-17:03:49.248 3578 Generated table #75@0: 24 keys, 86681 bytes
+2017/10/24-17:03:49.248 3578 Compacted 4@0 + 1@1 files => 2191497 bytes
+2017/10/24-17:03:49.304 3578 compacted to: files[ 0 2 1 0 0 0 0 ]
+2017/10/24-17:03:49.305 3578 Delete type=2 #63
+2017/10/24-17:03:49.305 3578 Delete type=2 #67
+2017/10/24-17:03:49.306 3578 Delete type=2 #70
+2017/10/24-17:03:49.306 3578 Delete type=2 #73
+2017/10/24-17:03:49.306 3578 Delete type=2 #65

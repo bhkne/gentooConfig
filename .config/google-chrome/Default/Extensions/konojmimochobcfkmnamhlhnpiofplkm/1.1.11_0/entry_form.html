@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TatkalNow</title>
+		<meta charset="utf-8"/>
+		
+		<link rel="stylesheet" href="styles/style_1.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="styles/jquery-ui.min.css" />
+		<link rel="stylesheet" href="scripts/css/jquery-impromptu.min.css" />
+		<script src="scripts/jquery-2.1.1.min.js"></script>
+		<script src="scripts/jquery-ui.min.js"></script>
+		<script src="scripts/jquery-impromptu.min.js"></script>
+		<script src="scripts/entry_form.js"></script>
+		<script src="scripts/station_list.js"></script>
+		<script src="scripts/train_list.js"></script>
+		<script src="scripts/aes.js"></script>
+	</head>
+	<body>
+		
+		<!-- <div class="notification show">
+			<div class="msg">This is an invalid code. Please confirm your code and try again.</div>
+			<div class="close"></div>
+		</div> -->
+		<div class="main-container">
+			<header><h1>TatkalNow: irctc booking made super easy</h1></header>
+		</div>
+
+		<div class="main-container">
+			<!-- <div class="container1">
+				<div class="box">
+					<a href="https://imjo.in/NsvwW" target="_blank">Are you agent or merchant? Go Cashless | पेमेंट लो बिना नोट के</a>
+				</div>
+			</div> -->
+			<!-- <div id="gisSpace" style="visibility: hidden;">
+				<div id="gisFormBox" style="text-align: center;">
+					<a id="gisSpaceLink" href="#">Shop and win 1 year UNLIMITED TatkalNow subscription worth Rs. 20000!</a>
+				</div>
+			</div> -->
+
+			<div class="container1">
+				<div class="box">
+					<div class="content">
+						<h4>IRCTC Login Details</h4>
+						<table width="30%">
+							<tr>
+								<td>Username</td>
+								<td><input type='text' name='user_login' id='user_login'/></td>
+							</tr>
+							<tr>
+								<td>Password</td>
+								<td><input type="password" name='user_pass' id='user_pass'/></td>
+							</tr>
+						</table>
+					</div>
+					<div class="content">
+						<h4>Travel Plan</h4>
+						<table width="50%">
+							<tr>
+								<td>From Station</td>
+								<td><input type='text' name='board_station' id='board_station'/><span>If boarding station is different from "From Station", <a id="showBoarding" href="#">click here</a></span></td>
+							</tr>
+							<tr id="row_board_station">
+								<td>Boarding Station</td>
+								<td><input type='text' name='board_middle_station' id='board_middle_station'/></td>
+							</tr>
+							<tr>
+								<td>Destination Station</td>
+								<td><input type='text' name='dest_station' id='dest_station'/></td>
+								<td><img src="exchange.png" id="dest_exg" title="Swap Boarding and Destination station" /></td>
+							</tr>
+							<tr>
+								<td>Travel Date</td>
+								<td><input type="text" name="travel_date" id="travel_date"/></td>
+							</tr>
+							<tr>
+								<td>Quota</td>
+								<td>
+									<select name='quota' id='quota'>
+										<option selected value="TQ">Tatkal</option>
+										<option value="PT">Premium Tatkal</option>
+										<option value="GN">General</option>
+										<option value="LD">Ladies</option>
+										<option value="HP">Physically Handicap</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>Train Number</td>
+								<td><input type="text" id="train_num" name="train_num"/><img src='styles/images/faq_small_button.png' class="masterTooltip" title="Your train number might not be on our list. That's OK, just type in the desired train number"/></td>
+							</tr>
+							<tr>
+								<td>Travel Class</td>
+								<td>
+									<select name="travel_class" id="travel_class">
+										<option value="1A">1A</option>
+										<option value="FC">FC</option>
+										<option value="2A">2A</option>
+										<option value="3A">3A</option>
+										<option value="3E">3E</option>
+										<option value="CC">CC</option>
+										<option selected value="SL">SL</option>
+										<option value="2S">2S</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td><input id="autoClickRefresh" type="checkbox" checked="true" name="autoClickRefresh"><span style="font-weight:bold;"> Auto-click refresh at 10:00 AM &amp; 11:00 AM</span></td>
+							</tr>
+						</table>
+					</div>
+					<div class="content">
+						<h4>Passenger Details</h4>
+						<table width="80%">
+						<tr>
+							<!-- <th width="20%">Name</th>
+							<th width="5%">Age</th>
+							<th width="8%">Gender</th>
+							<th width="10%">Berth</th>
+							<th width="6%">Food</th> 
+							<th width="8%">ID Card Type</th>
+							<th width="15%">ID Card No.</th>
+							<th width="5%">Senior Citizen</th> -->
+							<th width="1%">S.No.</th>
+							<th width="10%">Name</th>
+							<th width="2%">Age</th>
+							<th width="2%">Gender</th>
+							<th width="2%">Berth</th>
+							<th width="2%">Food</th>
+							<th width="3%">Bed Roll</th>
+							<th width="2%">Senior Citizen</th>
+							<th width="2%">Opt Berth</th>
+						</tr>
+						<tr id="row_passenger1">
+							<td>1.</td>
+							<td><input type="text" name="passenger1_name" maxlength="16"/></td>
+							<td class="div_age"><input type="text" name="passenger1_age"/></td>
+							<td>
+								<select name="passenger1_gender">
+									<option selected value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger1_berth">
+									<option selected value="  ">No Preference</option>
+									<option value="LB">Lower</option>
+									<option value="MB">Middle</option>
+									<option value="UB">Upper</option>
+									<option value="SU">Side Upper</option>
+									<option value="SL">Side Lower</option>
+									<option value="WS">Window Seat</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger1_food">
+									<option selected value="Veg">Veg</option>
+									<option value="Non_Veg">Non-Veg</option>
+								</select>
+							</td>
+							<td><input type="checkbox" name="passenger1_bedroll"></td>
+							<td style="display:none;">
+								<select name="passenger1_idCardType">
+									<option value="NULL_IDCARD">ID Card Type</option>
+									<option value="DRIVING_LICENSE">Driving License</option>
+									<option value="PASSPORT">Passport</option>
+									<option value="PANCARD">PAN Card</option>
+									<option value="VOTER_ICARD">Voter ID-Card</option>
+									<option value="GOVT_ICARD">Govt issued ID-Card</option>
+									<option value="STUDENT_ICARD">Student ID-Card</option>
+									<option value="BANK_PASSBOOK">Bank Passbook</option>
+									<option value="CREDIT_CARD">Credit Card with Photo</option>
+									<option value="UNIQUE_ICARD">Aadhar ID</option>
+								</select>
+							</td>
+							<td style="display:none;"><input type="text" name="passenger1_idCardNo"/></td>
+							<td><input type="checkbox" name="passenger1_senior" disabled="true"></td>
+							<td><input type="checkbox" name="passenger1_opt_berth" checked="checked" disabled="true"></td>
+						</tr>
+						<tr id="row_passenger2">
+							<td>2.</td>
+							<td><input type="text" name="passenger2_name" maxlength="16"/></td>
+							<td class="div_age"><input type="text" name="passenger2_age"/></td>
+							<td>
+								<select name="passenger2_gender">
+									<option selected value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger2_berth">
+									<option selected value="  ">No Preference</option>
+									<option value="LB">Lower</option>
+									<option value="MB">Middle</option>
+									<option value="UB">Upper</option>
+									<option value="SU">Side Upper</option>
+									<option value="SL">Side Lower</option>
+									<option value="WS">Window Seat</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger2_food">
+									<option selected value="Veg">Veg</option>
+									<option value="Non_Veg">Non-Veg</option>
+								</select>
+							</td>
+							<td><input type="checkbox" name="passenger2_bedroll"></td>
+							<td style="display:none;">
+								<select name="passenger2_idCardType">
+									<option value="NULL_IDCARD">ID Card Type</option>
+									<option value="DRIVING_LICENSE">Driving License</option>
+									<option value="PASSPORT">Passport</option>
+									<option value="PANCARD">PAN Card</option>
+									<option value="VOTER_ICARD">Voter ID-Card</option>
+									<option value="GOVT_ICARD">Govt issued ID-Card</option>
+									<option value="STUDENT_ICARD">Student ID-Card</option>
+									<option value="BANK_PASSBOOK">Bank Passbook</option>
+									<option value="CREDIT_CARD">Credit Card with Photo</option>
+									<option value="UNIQUE_ICARD">Aadhar ID</option>
+								</select>
+							</td>
+							<td style="display:none;"><input type="text" name="passenger2_idCardNo"/></td>
+							<td><input type="checkbox" name="passenger2_senior" disabled="true"></td>
+							<td><input type="checkbox" name="passenger2_opt_berth" checked="checked" disabled="true"></td>
+						</tr>
+						<tr id="row_passenger3">
+							<td>3.</td>
+							<td><input type="text" name="passenger3_name" maxlength="16"/></td>
+							<td class="div_age"><input type="text" name="passenger3_age"/></td>
+							<td>
+								<select name="passenger3_gender">
+									<option selected value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger3_berth">
+									<option selected value="  ">No Preference</option>
+									<option value="LB">Lower</option>
+									<option value="MB">Middle</option>
+									<option value="UB">Upper</option>
+									<option value="SU">Side Upper</option>
+									<option value="SL">Side Lower</option>
+									<option value="WS">Window Seat</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger3_food">
+									<option selected value="Veg">Veg</option>
+									<option value="Non_Veg">Non-Veg</option>
+								</select>
+							</td>
+							<td><input type="checkbox" name="passenger3_bedroll"></td>
+							<td style="display:none;">
+								<select name="passenger3_idCardType">
+									<option value="NULL_IDCARD">ID Card Type</option>
+									<option value="DRIVING_LICENSE">Driving License</option>
+									<option value="PASSPORT">Passport</option>
+									<option value="PANCARD">PAN Card</option>
+									<option value="VOTER_ICARD">Voter ID-Card</option>
+									<option value="GOVT_ICARD">Govt issued ID-Card</option>
+									<option value="STUDENT_ICARD">Student ID-Card</option>
+									<option value="BANK_PASSBOOK">Bank Passbook</option>
+									<option value="CREDIT_CARD">Credit Card with Photo</option>
+									<option value="UNIQUE_ICARD">Aadhar ID</option>
+								</select>
+							</td>
+							<td style="display:none;"><input type="text" name="passenger3_idCardNo"/></td>
+							<td><input type="checkbox" name="passenger3_senior" disabled="true"></td>
+							<td><input type="checkbox" name="passenger3_opt_berth" checked="checked" disabled="true"></td>
+						</tr>
+						<tr id="row_passenger4">
+							<td>4.</td>
+							<td><input type="text" name="passenger4_name" maxlength="16"/></td>
+							<td class="div_age"><input type="text" name="passenger4_age"/></td>
+							<td>
+								<select name="passenger4_gender">
+									<option selected value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger4_berth">
+									<option selected value="  ">No Preference</option>
+									<option value="LB">Lower</option>
+									<option value="MB">Middle</option>
+									<option value="UB">Upper</option>
+									<option value="SU">Side Upper</option>
+									<option value="SL">Side Lower</option>
+									<option value="WS">Window Seat</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger4_food">
+									<option selected value="Veg">Veg</option>
+									<option value="Non_Veg">Non-Veg</option>
+								</select>
+							</td>
+							<td><input type="checkbox" name="passenger4_bedroll"></td>
+							<td style="display:none;">
+								<select name="passenger4_idCardType">
+									<option value="NULL_IDCARD">ID Card Type</option>
+									<option value="DRIVING_LICENSE">Driving License</option>
+									<option value="PASSPORT">Passport</option>
+									<option value="PANCARD">PAN Card</option>
+									<option value="VOTER_ICARD">Voter ID-Card</option>
+									<option value="GOVT_ICARD">Govt issued ID-Card</option>
+									<option value="STUDENT_ICARD">Student ID-Card</option>
+									<option value="BANK_PASSBOOK">Bank Passbook</option>
+									<option value="CREDIT_CARD">Credit Card with Photo</option>
+									<option value="UNIQUE_ICARD">Aadhar ID</option>
+								</select>
+							</td>
+							<td style="display:none;"><input type="text" name="passenger4_idCardNo"/></td>
+							<td><input type="checkbox" name="passenger4_senior" disabled="true"></td>
+							<td><input type="checkbox" name="passenger4_opt_berth" checked="checked" disabled="true"></td>
+						</tr>
+						<tr id="row_passenger5">
+							<td>5.</td>
+							<td><input type="text" name="passenger5_name" maxlength="16"/></td>
+							<td class="div_age"><input type="text" name="passenger5_age"/></td>
+							<td>
+								<select name="passenger5_gender">
+									<option selected value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger5_berth">
+									<option selected value="  ">No Preference</option>
+									<option value="LB">Lower</option>
+									<option value="MB">Middle</option>
+									<option value="UB">Upper</option>
+									<option value="SU">Side Upper</option>
+									<option value="SL">Side Lower</option>
+									<option value="WS">Window Seat</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger5_food">
+									<option selected value="Veg">Veg</option>
+									<option value="Non_Veg">Non-Veg</option>
+								</select>
+							</td>
+							<td><input type="checkbox" name="passenger5_bedroll"></td>
+							<td style="display:none;">
+								<select name="passenger5_idCardType">
+									<option value="NULL_IDCARD">ID Card Type</option>
+									<option value="DRIVING_LICENSE">Driving License</option>
+									<option value="PASSPORT">Passport</option>
+									<option value="PANCARD">PAN Card</option>
+									<option value="VOTER_ICARD">Voter ID-Card</option>
+									<option value="GOVT_ICARD">Govt issued ID-Card</option>
+									<option value="STUDENT_ICARD">Student ID-Card</option>
+									<option value="BANK_PASSBOOK">Bank Passbook</option>
+									<option value="CREDIT_CARD">Credit Card with Photo</option>
+									<option value="UNIQUE_ICARD">Aadhar ID</option>
+								</select>
+							</td>
+							<td style="display:none;"><input type="text" name="passenger5_idCardNo"/></td>
+							<td><input type="checkbox" name="passenger5_senior" disabled="true"></td>
+							<td><input type="checkbox" name="passenger5_opt_berth" checked="checked" disabled="true"></td>
+						</tr>
+						<tr id="row_passenger6">
+							<td>6.</td>
+							<td><input type="text" name="passenger6_name" maxlength="16"/></td>
+							<td class="div_age"><input type="text" name="passenger6_age"/></td>
+							<td>
+								<select name="passenger6_gender">
+									<option selected value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger6_berth">
+									<option selected value="  ">No Preference</option>
+									<option value="LB">Lower</option>
+									<option value="MB">Middle</option>
+									<option value="UB">Upper</option>
+									<option value="SU">Side Upper</option>
+									<option value="SL">Side Lower</option>
+									<option value="WS">Window Seat</option>
+								</select>
+							</td>
+							<td>
+								<select name="passenger6_food">
+									<option selected value="Veg">Veg</option>
+									<option value="Non_Veg">Non-Veg</option>
+								</select>
+							</td>
+							<td><input type="checkbox" name="passenger6_bedroll"></td>
+							<td style="display:none;">
+								<select name="passenger6_idCardType">
+									<option value="NULL_IDCARD">ID Card Type</option>
+									<option value="DRIVING_LICENSE">Driving License</option>
+									<option value="PASSPORT">Passport</option>
+									<option value="PANCARD">PAN Card</option>
+									<option value="VOTER_ICARD">Voter ID-Card</option>
+									<option value="GOVT_ICARD">Govt issued ID-Card</option>
+									<option value="STUDENT_ICARD">Student ID-Card</option>
+									<option value="BANK_PASSBOOK">Bank Passbook</option>
+									<option value="CREDIT_CARD">Credit Card with Photo</option>
+									<option value="UNIQUE_ICARD">Aadhar ID</option>
+								</select>
+							</td>
+							<td style="display:none;"><input type="text" name="passenger6_idCardNo"/></td>
+							<td><input type="checkbox" name="passenger6_senior" disabled="true"></td>
+							<td><input type="checkbox" name="passenger6_opt_berth" checked="checked" disabled="true"></td>
+						</tr>
+						</table>
+					</div>
+					<div class="content">
+						<h4>Children Below 5 Years</h4>
+						<table width="40%">
+						<tr>
+							<th>S.No.</th>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Gender</th>
+						</tr>
+						<tr>
+							<td>1.</td>
+							<td><input type="text" name="child1_name" maxlength="16"/></td>
+							<td>
+								<select name="child1_infantAge">
+									<option value="-1" selected="selected">Select</option>
+									<option value="0">Below one year</option>
+									<option value="1">One year</option>
+									<option value="2">Two years</option>
+									<option value="3">Three years</option>
+									<option value="4">Four years</option>
+								</select>
+							</td>
+							<td>
+								<select name="child1_gender">
+									<option selected value=" ">Select</option>
+									<option value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>2.</td>
+							<td><input type="text" name="child2_name" maxlength="16"/></td>
+							<td>
+								<select name="child2_infantAge">
+									<option value="-1" selected="selected">Select</option>
+									<option value="0">Below one year</option>
+									<option value="1">One year</option>
+									<option value="2">Two years</option>
+									<option value="3">Three years</option>
+									<option value="4">Four years</option>
+								</select>
+							</td>
+							<td>
+								<select name="child2_gender">
+									<option selected value=" ">Select</option>
+									<option value="M">Male</option>
+									<option value="F">Female</option>
+								</select>
+							</td>
+						</tr>
+						</table>
+						
+						<table width="100%" style="height:100%;">
+							<tr valign="top" style="widows: 100%">
+								<td align="left" style="height:100%;padding:2px 0px;">
+									<span style="font-weight:bold;">Do you want to take Travel Insurance (Rs 0.92 / person)?</span>
+								</td>
+								<td class="travelInsuranceTd">
+									<table id="travelInsurance" class="travelInsurance" style="FONT-FAMILY: verdana;">
+										<tbody>
+											<tr>
+												<td>
+													<input type="radio" name="travelInsurance" id="travelInsurance0" value="true">
+													<label for="travelInsurance0"> Yes And I Accept the 
+														<a class="travelInsuranceTnC" href="http://contents.irctc.co.in/en/InsuranceTermCondition.pdf" target="_blank">Terms &amp; Conditions</a> of the Travel Insurance Policy.
+													</label>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<input type="radio" name="travelInsurance" id="travelInsurance1" value="false" checked="checked">
+													<label for="travelInsurance1"> No</label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</table>
+						
+						<table width="50%">
+							<tr>
+								<td><input id="autoUpgrade" type="checkbox" checked="true" name="autoUpgrade"><span style="font-weight:bold;"> Consider for Auto Upgradation</span></td>
+								<td><span style="font-weight:bold;">Mobile Number</span><input type="text" name="mobileNumber" id="mobileNumber" maxlength="10"/></td>
+							</tr>
+							<tr>
+								<td><input id="onlyConfirmBerths" type="checkbox" name="onlyConfirmBerths"> Book only if confirm berths are allotted</td>
+							</tr>
+							<tr>
+								<td>
+									<table style="width:100%;" class="masterTooltip" title="If you need assured Lower Berths or assured compact accommodation (in same coach), please select one of the options
+
+	If 'None' is selected, the berths will be allotted based on the system logic, depending on availability at that point of time
+
+	This choice shall not be applicable in case confirmed accommodation is not available in the train">
+										<tbody>
+											<tr>
+												<td>
+													<input type="radio" checked="checked" name="bookingCond" id="bookingCond0" value="3"/>
+													<label for="bookingCond0"> None</label>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<input type="radio" name="bookingCond" id="bookingCond1" value="6"/>
+													<label for="bookingCond1"> Book , only if all berths are allotted in same coach</label>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<input type="radio" name="bookingCond" id="bookingCond2" value="4"/>
+													<label for="bookingCond2"> Book, only if at least 1 lower berth is allotted</label>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<input type="radio" name="bookingCond" id="bookingCond3" value="5"/>
+													<label for="bookingCond3"> Book, only if 2 lower berths are allotted.</label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="masterTooltip" title="Booking shall be done in PRS in the coach given by the user if seats are available, otherwise the passenger is allotted in any other coach."><input id="prefCoachOpt" type="checkbox" name="prefCoachOpt"> Preferred Coach ID : <input id="coachID" type="text" name="coachID" value="" disabled maxlength="4" size="6" style="width:10% !important; display: inline;"></td>
+							</tr>
+						</table>
+					</div>
+					<div class="content">
+						<h4>Payment Details</h4>
+						<p style="font-family: Artifika, Arial, Helvetica, sans-serif; color: #666; margin-bottom:15px;"><i>This is stored only on your computer and is completely safe. Still not sure? Leave it empty, you can always fill it in later.</i></p>
+						<table width="100%" border="0">
+							<tbody>
+							<tr align="left">
+								<td width="100%" colspan="3">
+									<table width="100%" border="0">
+										<tbody>
+											<tr>
+												<td width="20%"><label style="font-weight:bold;">Payment Mode :</label></td>
+												<td width="80%" align="left">
+													<select name="jpBookpayOption">
+														<option selected value="AGGREGATOR">Multiple Payment Service</option>
+														<!-- <option value="UPI_VPA">UPI / BHIM / USSD</option> -->
+														<option value="DEBIT_CARD">Debit Card with PIN</option>
+														<option value="NETBANKING">Net Banking</option>
+														<!-- <option value="SCAN_AND_PAY">mVisa / Scan &amp; Pay</option> -->
+														<option value="CASH_CARD">Wallets / Cash Cards</option>
+														<option value="IRCTC_PREPAID">IRCTC Prepaid</option>
+														<option value="E_WALLET">IRCTC eWallet</option>
+														<!-- <option value="COD">Pay On Delivery / Paylater</option> -->
+														<option value="CREDIT_CARD">Payment Gateway / Credit/Debit Cards</option>
+													</select>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr align="left">
+								<td width="100%" colspan="3" align="left">
+									<div id="payment-list">
+										<div id="AGGREGATOR" style="width: 100%; display: block;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select a Gateway :</label></td>
+														<td width="80%">
+															<select id="jpBookbankAggList" name="jpBookbankAggList" size="1">
+																<option value="-1">Select Bank</option>
+																<option selected value="78">Credit &amp; Debit cards / Net Banking / Wallet (Powered by Paytm)</option>
+																<!-- <option value="94">Credit &amp; Debit cards / Net Banking / Wallet (Powered by ITZ)</option>
+																<option value="98">Credit &amp; Debit cards / Net Banking / Wallet (Powered by PayU)</option> -->
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="UPI_VPA" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select a Gateway :</label></td>
+														<td width="80%">
+															<select id="jpBookUPIList" name="jpBookUPIList" size="1">
+																<option value="-1">Select Bank</option>
+																<option value="97">UPI (Powered by AXIS BANK) also accepts Payments using BHIM</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="SCAN_AND_PAY" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select a Gateway :</label></td>
+														<td width="80%">
+															<select id="jpBookScanPayList" name="jpBookScanPayList" size="1">
+																<option value="-1">Select Bank</option>
+																<option value="89">ATOM - mVisa</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="COD" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select a Gateway :</label></td>
+														<td width="80%">
+															<select id="jpBookCODList" name="jpBookCODList" size="1">
+																<option value="-1">Select Bank</option>
+																<option value="100">ePaylater (Powered by Arthashastra Fintech Pvt. Ltd.)</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="NETBANKING" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select Bank :</label></td>
+														<td width="80%">
+															<select id="jpBookbankINBList" name="jpBookbankINBList" size="1">
+																<option value="-1">Select Bank</option>
+																<option value="1">State Bank of India</option>
+																<!-- <option value="10">State Bank of India and Associates</option> -->
+																<option value="22">Federal Bank</option>
+																<option value="29">Indian Bank</option>
+																<option value="28">Union Bank of India</option>
+																<option value="31">Andhra Bank</option>
+																<option value="34">Punjab National Bank </option>
+																<option value="35">Allahabad Bank</option>
+																<option value="38">Vijaya Bank</option>
+																<option value="39">AXIS Bank</option>
+																<option value="36">HDFC Bank</option>
+																<!-- <option value="37">Bank of Baroda</option> -->
+																<option value="42">Karnataka Bank</option>
+																<option value="43">Oriental Bank of Commerce</option>
+																<option value="40">Karur Vysya Bank</option>
+																<option value="46">Kotak Mahindra Bank</option>
+																<!--<option value="47">ING Vysya Bank (now Kotak)</option>-->
+																<option value="44">ICICI Bank </option>
+																<option value="45">IndusInd Bank</option>
+																<!--<option value="51">IMPS</option>-->
+																<option value="50">Central Bank of India</option>
+																<option value="48">Bank of India</option>
+																<option value="54">Syndicate Bank</option>
+																<option value="53">Bank of Maharashatra</option>
+																<option value="52">IDBI Bank</option>
+																<option value="56">Corporation Bank</option>
+																<option value="60">Yes Bank</option>
+																<option value="64">Nepal SBI Bank Ltd.</option>
+																<option value="67">South Indian Bank</option>
+																<option value="81">Canara Bank</option>
+																<option value="80">City Union Bank</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="CREDIT_CARD" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select a Payment gateway :</label></td>
+														<td width="80%">
+															<select id="jpBookbankPGList" name="jpBookbankPGList" size="1">
+																<option value="-1">Select Bank</option>
+																<option value="4">Visa/Master Card(Powered By ICICI BANK)</option>
+																<option value="17">Visa/Master Card(Powered By CITI BANK)</option>
+																<option value="21">Visa/Master Card(Powered By HDFC BANK)</option>
+																<option value="27">American Express</option>
+																<option value="30">Visa/Master Card(Powered By AXIS BANK)</option>
+																<option value="58">RuPay Card (Powered by Kotak Bank)</option>
+																<!-- <option value="72">International cards (Powered by ATOM)</option> -->
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="DEBIT_CARD" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select Bank :</label></td>
+														<td width="80%">
+															<select id="jpBookbankDCList" name="jpBookbankDCList" size="1">
+																<option value="-1">Select Bank</option>
+																<!-- <option value="3">State Bank of India</option> -->
+																<option value="5">Indian Overseas Bank</option>
+																<!-- <option value="9">Punjab National Bank</option> -->
+																<option value="15">Indian Bank</option>
+																<!-- <option value="16">Union Bank of India </option> -->
+																<!-- <option value="19">Bank of India</option> -->
+																<!-- <option value="25">Andhra Bank</option> -->
+																<option value="26">Canara Bank</option>
+																<!-- <option value="32">CITI Bank</option> -->
+																<!-- <option value="41">ICICI Bank</option> -->
+																<option value="57">HDFC Bank</option>
+																<option value="69">Central Bank of India</option>
+																<option value="66">AXIS Bank</option>
+																<option value="86">United Bank of India</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="CASH_CARD" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select a Cash card :</label></td>
+														<td width="80%">
+															<select id="jpBookbankCCList" name="jpBookbankCCList" size="1">
+																<option value="-1">Select Cash card</option>
+																<!-- <option value="23">ITZ Cash Card</option> -->
+																<option value="33">I Cash Card</option>
+																<option value="55">Oxigen Cash Card</option>
+																<option value="68">Mobikwik Wallet</option>
+																<option value="70">mRUPEE Wallet</option>
+																<option value="71">Paytm Wallet</option>
+																<option value="79">Freecharge Wallet</option>
+																<option value="75">SBI Buddy</option>
+																<option value="85">OLAMONEY Wallet</option>
+																<option value="93">Airtel Money</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div id="IRCTC_PREPAID" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select an Option :</label></td>
+														<td width="80%">
+															<select id="jpBookbankPrepaidList" name="jpBookbankPrepaidList" size="1">
+																<option value="-1">Select</option>
+																<option value="59">IRCTC Union Bank prepaid (RuPay)</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!-- <div id="EMI" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+													<tr>
+														<td width="20%"><label style="font-weight:bold;">Select a Bank :</label></td>
+														<td width="80%">
+															<select id="jpBookbankEMIList" name="jpBookbankEMIList" size="1">
+																<option value="-1">Select Bank</option>
+																<option value="49">CITI Bank</option>
+															</select>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div> -->
+										<div id="E_WALLET" style="width: 100%; display: none;">
+											<table width="100%" border="0">
+												<tbody>
+												<tr>
+													<td width="20%"></td>
+													<td width="80%">
+														<table id="ewallet-input-table" border="0">
+															<tbody>
+															<tr>
+																<td>Transaction Password: </td>
+																<td>
+																	<input name="ewallet_txnpwd" maxlength="15" size="39" id="ewallet_txnpwd" class="card_class" type="text"/>
+																</td>
+															</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+						<table width="100%" border="0">
+							<tbody>
+							<tr>
+								<td width="20%"></td>
+								<td width="80%">
+									<div id="card_div_id" style="display: none;">
+										<table id="card-input-table" border="0">
+											<tbody>
+											<tr>
+												<td>Credit Card Type: </td>
+												<td>
+													<select name="card_type" id="card_type">
+														<option value="VISA">VISA</option>
+														<option value="MC">MASTER</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td>Credit Card Number: </td>
+												<td>
+													<input name="card_no" maxlength="19" size="39" id="card_no" class="card_class" placeholder="Please enter your card number" type="text"/>
+												</td>
+											</tr>
+											<tr>
+												<td>Card Expiry Date: </td>
+												<td>
+													<table>
+														<tr>
+															<td>
+																Month :
+																<select name="card_expiry_mon" id="card_expiry_mon">
+																	<option selected="selected" value="mm">mm</option>
+																	<option value="01">01 (Jan)</option>
+																	<option value="02">02 (Feb)</option>
+																	<option value="03">03 (Mar)</option>
+																	<option value="04">04 (Apr)</option>
+																	<option value="05">05 (May)</option>
+																	<option value="06">06 (Jun)</option>
+																	<option value="07">07 (Jul)</option>
+																	<option value="08">08 (Aug)</option>
+																	<option value="09">09 (Sep)</option>
+																	<option value="10">10 (Oct)</option>
+																	<option value="11">11 (Nov)</option>
+																	<option value="12">12 (Dec)</option>
+																</select>
+															</td>
+															<td width="70%">
+																Year(yyyy) :
+																<input name="card_expiry_year" maxlength="4" size="4" id="card_expiry_year" placeholder="yyyy" type="text"/>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<!-- <tr>
+												<td colspan="2" style="color:#D4534E; font-weight:bold;">We do not ask for your CVV number. You should fill it in manually on irctc.</td>
+											</tr> -->
+											<tr>
+												<td>CVV: </td>
+												<td>
+													<input name="card_cvv" maxlength="4" size="6" id="card_cvv" placeholder="cvv" type="password"/>
+												</td>
+											</tr>
+											<tr>
+												<td>Name on Card: </td>
+												<td>
+													<input name="card_name" maxlength="35" size="39" id="card_name" placeholder="Please enter your name specified on the card" type="text"/>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div id="netbank_div_id" style="display: none;">
+										<table id="row_sbi_associate" style="display: none;" width="100%" border="0">
+											<tbody>
+												<tr>
+													<td align="left"><label style="font-weight:bold;">Choose Bank:</label></td>
+												</tr>
+												<tr>
+													<td align="left">
+														<table style="width:100%;">
+															<tbody>
+																<tr>
+																	<td>
+																		<input type="radio" checked="checked" name="jpSBIAssBank" id="jpSBIAssBank1" value="1" />
+																		<label for="jpSBIAssBank1"> State Bank of Bikaner and Jaipur</label>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		<input type="radio" name="jpSBIAssBank" id="jpSBIAssBank2" value="2" />
+																		<label for="jpSBIAssBank2"> State Bank of Hyderabad</label>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		<input type="radio" name="jpSBIAssBank" id="jpSBIAssBank4" value="4" />
+																		<label for="jpSBIAssBank4"> State Bank of Mysore</label>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		<input type="radio" name="jpSBIAssBank" id="jpSBIAssBank5" value="5" />
+																		<label for="jpSBIAssBank5"> State Bank of Patiala</label>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		<input type="radio" name="jpSBIAssBank" id="jpSBIAssBank7" value="7" />
+																		<label for="jpSBIAssBank7"> State Bank of Travancore</label>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<table id="bank-input-table" border="0">
+											<tbody>
+											<tr>
+												<td>Login ID/User Name: </td>
+												<td>
+													<input name="net_username" maxlength="30" size="39" id="net_username" class="card_class" type="text"/>
+												</td>
+											</tr>
+											<tr>
+												<td>Password: </td>
+												<td>
+													<input name="net_password" maxlength="30" size="39" id="net_password" class="card_class" type="password"/>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+										<table id="row_sbi_otp_option" style="display: none;" width="100%" border="0">
+											<tbody>
+												<tr>
+													<td><label style="font-weight:bold;">OTP Mode:</label></td>
+													<td>
+														<input type="radio" checked="checked" name="rdSBIOtp" id="rdSBIOtp0" value="SBI_OTP_Online" />
+														<label for="rdSBIOtp0"> Online OTP</label>
+													</td>
+													<td>
+														<input type="radio" name="rdSBIOtp" id="rdSBIOtp1" value="SBI_OTP_Offline" />
+														<label for="rdSBIOtp1"> Offline OTP</label>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<table id="row_icici_isafe" style="display: none;" width="100%" border="0">
+											<tbody>
+												<tr>
+													<td>iSafe OTP: </td>
+													<td>
+														<input name="icici_isafe_otp" maxlength="30" size="39" id="icici_isafe_otp" class="card_class" type="text"/>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<table id="row_idbi_osp" style="display: none;" width="100%" border="0">
+											<tbody>
+												<tr>
+													<td>OSP: </td>
+													<td>
+														<input name="idbi_osp" maxlength="30" size="39" id="idbi_osp" class="card_class" type="text"/>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div id="netbank_imps_div_id" style="display: none;">
+										<table id="netbank_imps_input_table" border="0">
+											<tbody>
+											<tr>
+												<td>Customer Mobile Number: </td>
+												<td>
+													<input name="imps_mob_num" maxlength="10" size="39" id="imps_mob_num" class="card_class" type="text"/>
+												</td>
+											</tr>
+											<tr>
+												<td>Customer MMID: </td>
+												<td>
+													<input name="imps_mmid" maxlength="12" size="39" id="imps_mmid" class="card_class" type="text"/>
+												</td>
+											</tr>
+											<tr>
+												<td>OTP: </td>
+												<td>
+													<input name="imps_otp" maxlength="12" size="39" id="imps_otp" class="card_class" type="text"/>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+									
+									<div id="debitcard_div_id" style="display: none;">
+										<table id="card-input-table" border="0">
+											<tbody>
+											<tr id="debit_card_type" style="display: none;">
+												<td>Card Type: </td>
+												<td>
+													<select name="dcard_type" id="dcard_type">
+														<option selected="selected" value="0">SELECT</option>
+														<option value="1">VISA</option>
+														<option value="2">MASTER</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<td>Debit Card Number: </td>
+												<td>
+													<input name="dcard_no" maxlength="19" size="39" id="dcard_no" class="card_class" placeholder="Please enter your card number" type="text"/>
+												</td>
+											</tr>
+											<tr>
+												<td>Card Valid Through: </td>
+												<td>
+													<table>
+														<tr>
+															<td>
+																Month :
+																<select name="dcard_expiry_mon" id="dcard_expiry_mon">
+																	<option selected="selected" value="mm">mm</option>
+																	<option value="01">01 (Jan)</option>
+																	<option value="02">02 (Feb)</option>
+																	<option value="03">03 (Mar)</option>
+																	<option value="04">04 (Apr)</option>
+																	<option value="05">05 (May)</option>
+																	<option value="06">06 (Jun)</option>
+																	<option value="07">07 (Jul)</option>
+																	<option value="08">08 (Aug)</option>
+																	<option value="09">09 (Sep)</option>
+																	<option value="10">10 (Oct)</option>
+																	<option value="11">11 (Nov)</option>
+																	<option value="12">12 (Dec)</option>
+																</select>
+															</td>
+															<td width="70%">
+																Year(yyyy) :
+																<input name="dcard_expiry_year" maxlength="4" size="4" id="dcard_expiry_year" type="text"/>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<!-- <tr>
+												<td colspan="2" style="color:#D4534E; font-weight:bold;">We do not ask for your PIN number. You should fill it in manually on the page.</td>
+											</tr> -->
+											<tr>
+												<td>CVV: </td>
+												<td>
+													<input name="dcard_cvv" maxlength="6" size="8" id="dcard_cvv" placeholder="Please enter your card cvv. Leave empty if no CVV" type="password"/>
+												</td>
+											</tr>
+											<tr>
+												<td>ATM PIN: </td>
+												<td>
+													<input name="dcard_pin" maxlength="6" size="8" id="dcard_pin" placeholder="Please enter your ATM pin" type="password"/>
+												</td>
+											</tr>
+											<tr>
+												<td>Name on Card: </td>
+												<td>
+													<input name="dcard_name" maxlength="35" size="39" id="dcard_name" placeholder="Please enter your name specified on the card" type="text"/>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div id="wallet_div_id" style="display: none;">
+										<table id="wallet-input-table" border="0">
+											<tbody>
+											<tr>
+												<td>Login ID/User Name: </td>
+												<td>
+													<input name="wallet_username" maxlength="30" size="39" id="wallet_username" class="card_class" type="text"/>
+												</td>
+											</tr>
+											<tr>
+												<td>Password: </td>
+												<td>
+													<input name="wallet_password" maxlength="30" size="39" id="wallet_password" class="card_class" type="password"/>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div id="prepaid_card_div_id" style="display: none;">
+										<table id="card-input-table" border="0">
+											<tbody>
+											<tr>
+												<td>Card Number: </td>
+												<td>
+													<input name="pcard_no" maxlength="19" size="39" id="pcard_no" class="card_class" placeholder="Please enter your card number" type="text"/>
+												</td>
+											</tr>
+											<tr>
+												<td>Card Expiry Date: </td>
+												<td>
+													<table>
+														<tr>
+															<td>
+																Month :
+																<select name="pcard_expiry_mon" id="pcard_expiry_mon">
+																	<option selected="selected" value="mm">mm</option>
+																	<option value="01">01 (Jan)</option>
+																	<option value="02">02 (Feb)</option>
+																	<option value="03">03 (Mar)</option>
+																	<option value="04">04 (Apr)</option>
+																	<option value="05">05 (May)</option>
+																	<option value="06">06 (Jun)</option>
+																	<option value="07">07 (Jul)</option>
+																	<option value="08">08 (Aug)</option>
+																	<option value="09">09 (Sep)</option>
+																	<option value="10">10 (Oct)</option>
+																	<option value="11">11 (Nov)</option>
+																	<option value="12">12 (Dec)</option>
+																</select>
+															</td>
+															<td width="70%">
+																Year(yyyy) :
+																<input name="pcard_expiry_year" maxlength="4" size="4" id="pcard_expiry_year" type="text"/>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<!-- <tr>
+												<td colspan="2" style="color:#D4534E; font-weight:bold;">We do not ask for your CVV number. You should fill it in manually on irctc.</td>
+											</tr> -->
+											<tr>
+												<td>Name on Card: </td>
+												<td>
+													<input name="pcard_name" maxlength="35" size="39" id="pcard_name" placeholder="Please enter your name specified on the card" type="text"/>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div id="card_agg_id" style="display: none; margin: auto; width: 820px;">
+										<div style="position: relative;">
+											<div style="width: 220px; float: left;">
+												<ul class="ptgrid">
+													<li class="ptcard ptItemActive">
+														<a id="pt-db-click" href="#">Debit Card</a>
+													</li>
+													<li class="ptcard">
+														<a id="pt-cc-click" href="#">Credit Card</a>
+													</li>
+													<!-- <li class="ptcard">
+														<a id="pt-nb-click" href="#">Net Banking</a>
+													</li> -->
+												</ul>
+											</div>
+											<div style="width: 560px; float: right;">
+												<div class="ptrightcon active" id="pt-db-card">
+													<table border="0">
+														<tbody>
+														<tr>
+															<td>Debit Card Number: </td>
+															<td>
+																<input name="pt_dc_card_no" maxlength="19" size="39" id="pt_dc_card_no" class="card_class" placeholder="Enter your debit card number" type="text"/>
+															</td>
+														</tr>
+														<tr>
+															<td>Card Expiry Date: </td>
+															<td>
+																<table>
+																	<tr>
+																		<td>
+																			Month :
+																			<select name="pt_dc_card_expiry_mon" id="pt_dc_card_expiry_mon">
+																				<option selected="selected" value="mm">mm</option>
+																				<option value="01">01 (Jan)</option>
+																				<option value="02">02 (Feb)</option>
+																				<option value="03">03 (Mar)</option>
+																				<option value="04">04 (Apr)</option>
+																				<option value="05">05 (May)</option>
+																				<option value="06">06 (Jun)</option>
+																				<option value="07">07 (Jul)</option>
+																				<option value="08">08 (Aug)</option>
+																				<option value="09">09 (Sep)</option>
+																				<option value="10">10 (Oct)</option>
+																				<option value="11">11 (Nov)</option>
+																				<option value="12">12 (Dec)</option>
+																			</select>
+																		</td>
+																		<td width="70%">
+																			Year(yyyy) :
+																			<input name="pt_dc_card_expiry_year" maxlength="4" size="4" id="pt_dc_card_expiry_year" placeholder="yyyy" type="text"/>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+														<tr>
+															<td>CVV: </td>
+															<td>
+																<input name="pt_dc_card_cvv" maxlength="4" size="6" id="pt_dc_card_cvv" placeholder="CVV" type="password"/>
+															</td>
+														</tr>
+														</tbody>
+													</table>
+												</div>
+												<div class="ptrightcon" id="pt-cc-card">
+													<table border="0">
+														<tbody>
+														<tr>
+															<td>Credit Card Number: </td>
+															<td>
+																<input name="pt_cc_card_no" maxlength="19" size="39" id="pt_cc_card_no" class="card_class" placeholder="Enter your credit card number" type="text"/>
+															</td>
+														</tr>
+														<tr>
+															<td>Card Expiry Date: </td>
+															<td>
+																<table>
+																	<tr>
+																		<td>
+																			Month :
+																			<select name="pt_cc_card_expiry_mon" id="pt_cc_card_expiry_mon">
+																				<option selected="selected" value="mm">mm</option>
+																				<option value="01">01 (Jan)</option>
+																				<option value="02">02 (Feb)</option>
+																				<option value="03">03 (Mar)</option>
+																				<option value="04">04 (Apr)</option>
+																				<option value="05">05 (May)</option>
+																				<option value="06">06 (Jun)</option>
+																				<option value="07">07 (Jul)</option>
+																				<option value="08">08 (Aug)</option>
+																				<option value="09">09 (Sep)</option>
+																				<option value="10">10 (Oct)</option>
+																				<option value="11">11 (Nov)</option>
+																				<option value="12">12 (Dec)</option>
+																			</select>
+																		</td>
+																		<td width="70%">
+																			Year(yyyy) :
+																			<input name="pt_cc_card_expiry_year" maxlength="4" size="4" id="pt_cc_card_expiry_year" placeholder="yyyy" type="text"/>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+														<tr>
+															<td>CVV: </td>
+															<td>
+																<input name="pt_cc_card_cvv" maxlength="4" size="6" id="pt_cc_card_cvv" placeholder="CVV" type="password"/>
+															</td>
+														</tr>
+														</tbody>
+													</table>
+												</div>
+												<div class="ptrightcon" id="pt-nb-card">
+													<table border="0">
+														<tbody>
+														<tr>
+															<td>Select Bank: </td>
+															<td>
+																<select class="pt-nb-select" id="pt-nb-select" data-size="5">
+																	<option value="-1">Select</option>
+																	<option value="CITI">Citibank</option>
+																	<option value="ICICI">ICICI Bank</option>
+																	<option value="AXIS">Axis Bank</option>
+																	<option value="KOTAK">Kotak Bank</option>
+																	<option value="BHARAT">Bharat Bank</option>
+																	<option value="ALH">Allahabad Bank</option>
+																	<option value="ANDHRA">Andhra Bank</option>
+																	<option value="BOB">Bank of Baroda</option>
+																	<option value="BOM">Bank of Maharashtra</option>
+																	<option value="CANARA">Canara Bank</option>
+																	<option value="CSB">Catholic Syrian Bank</option>
+																	<option value="CBI">Central Bank of India</option>
+																	<option value="CITIUB">City Union Bank</option>
+																	<option value="CORP">Corporation Bank</option>
+																	<option value="COSMOS">Cosmos Bank</option>
+																	<option value="JSB">Janata Sahakari Bank Ltd Pune</option>
+																	<option value="DCB">DCB Bank Limited</option>
+																	<option value="DENA">Dena Bank</option>
+																	<option value="FDEB">Federal Bank</option>
+																	<option value="IDBI">IDBI Bank</option>
+																	<option value="INDB">Indian Bank</option>
+																	<option value="IOB">Indian Overseas Bank</option>
+																	<option value="INDS">IndusInd Bank</option>
+																	<option value="JKB">Jammu and Kashmir Bank</option>
+																	<option value="KTKB">Karnataka Bank</option>
+																	<option value="KVB">Karur Vysya Bank</option>
+																	<option value="LVB">Lakshmi Vilas Bank</option>
+																	<option value="OBPRF">Oriental Bank of Commerce</option>
+																	<option value="STB">Saraswat Bank</option>
+																	<option value="SIB">South Indian Bank</option>
+																	<option value="TNMB">Tamilnad Mercantile Bank</option>
+																	<option value="UNI">Union Bank of India</option>
+																	<option value="UBI">United Bank of India</option>
+																	<option value="VJYA">Vijaya Bank</option>
+																	<option value="YES">YES BANK</option>
+																	<option value="SVC">SVC Cooperative Bank Ltd</option>
+																	<option value="UCO">UCO Bank</option>
+																	<option value="PSB">Punjab &amp; Sind Bank</option>
+																</select>
+															</td>
+														</tr>
+														<tr>
+															<td>User Name: </td>
+															<td>
+																<input name="pt_nb_login" id="pt_nb_login" placeholder="User name" type="text"/>
+															</td>
+														</tr>
+														<tr>
+															<td>Password: </td>
+															<td>
+																<input name="pt_nb_pwd" id="pt_nb_pwd" placeholder="Password" type="password"/>
+															</td>
+														</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<table width="100%" align='center'>
+						<tr align="center">
+							<td width='50%'>
+								<span>Tatkal Booking Remaining:</span>&nbsp;<span id="span_free_rem"></span>&nbsp;<a id="buy_more_tickets" href="#">Buy More</a>
+								<img src="info_icon.png" id="imgHelp" width="16px" height="16px" title="Click to know more"/>
+							</td>
+						</tr>
+						<tr>
+							<td width='50%'>
+								<div class="res_btn">
+									<button id="btn_BookNow">Save &amp; Book Now</button>&nbsp;&nbsp;&nbsp;
+									<button id="btn_Submit">Save &amp; Book Later</button>
+								</div>
+							</td>
+						</tr>
+						<!--
+						<tr align="center">
+							<td width='50%'>
+								<a href="http://www.makkhichoose.com/agentlisting?l=eng" target='_blank'>Agent? Book tickets and earn &#x20b9;15000+</a>
+							</td>
+						</tr>
+						<tr align="center">
+							<td width='50%'>
+								<a href='http://www.makkhichoose.com/agentlisting?l=hnd' target='_blank'>एजेंट? टिकट बुकिंग से &#x20b9;१५०००+ कमाई</a>
+							</td>
+						</tr>
+						-->
+						<!-- <tr align="center">
+							<td width='50%'>
+								<a href='http://www.makkhichoose.com/agentlisting?l=hnd' target='_blank'>एजेंट? टिकट बुकिंग से &#x20b9;१५०००+ कमाई</a>
+							</td>
+						</tr> -->
+					</table>
+					<div class="content">
+						<h4>SMS OTP Automation</h4>
+						<div style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
+							<p>Install "<span style="font-style: italic;">IRCTC Agent Connect</span>" Android App <img id="aplaystorelink" style="vertical-align:middle" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" width="160" height="62"></p>
+							<p>Your unique app code: <span id="spnUserID" class="uniq_id"></span></p>
+							<!-- <p>QR Code: <span style="vertical-align:middle" id="qrcode"></span></p> -->
+						</div>
+						<div style="padding-top: 20px; padding-right: 10px; padding-left: 10px;">
+							Install the "IRCTC Agent Connect" app and link to your extension. Once you have linked the app, we will automatically read the OTP SMS at Tatkal booking time and autofill
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal"><!-- Place at bottom of page --></div>
+		<div class="main-container">
+			<div class="container1">
+				<header><strong>Powered by <a href='http://www.makkhichoose.com/' target='_blank'>MakkhiChoose</a><img src='makkhi_IRCTC.png' width='64'/></strong></header>
+			</div>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+
+    <head>
+        <!-- bootstrap -->
+        <link href="/vendor/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script src="/vendor/aes.js"></script>
+        <script src="/vendor/bower/jquery/dist/jquery.min.js"></script>
+        <script src="/vendor/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- bootstrap switch -->
+        <link href="/vendor/bower/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+        <script src="/vendor/bower/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+
+        <!-- custom -->
+        <link href="../css/theme.css" rel="stylesheet" media="screen">
+        <link href="../css/popup.css" rel="stylesheet" media="screen">
+        <script src="../js/activation.js"></script>
+        <script src="/vendor/analytics.js"></script>
+    </head>
+
+    <body id="white">
+
+        <div class="activation-container">
+            <div class="activation-orange" id="activation-top-half">
+                <div id="loading-activation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <p id="activating-text">
+                    ACTIVATING GOM
+                </p>
+                <img src="/assets/images/small_settings_icon.png" class="settings clickable">
+            </div>
+
+            <div class="activation-green hidden" id="activation-top-half">
+                <img src="/assets/images/dark_blue_flying_women.png" id="activated-icon">
+                <p id="activating-text">
+                    GOM ACTIVATED
+                </p>
+                <img src="/assets/images/small_settings_icon.png" class="settings clickable">
+            </div>
+
+            <div class="activation-red hidden" id="activation-top-half">
+                <a href="mailto:go@getgom.com?subject=Server+issues" target="_blank">
+                    <img src="/assets/images/email_white.png" id="error-icon">
+                </a>
+                <p id="activating-text">
+                    POSSIBLE SERVER ISSUES
+                </p>
+                <img src="/assets/images/small_settings_icon.png" class="settings clickable">
+            </div>
+
+            <div class="hidden" id="activation-btm-half">
+                <div class="activation-action text-center hidden" id="sign-in">
+                    <p class="active-text" id="daily-free-limit-active-text">
+                        Sign in for an uninterrupted Gom
+                    </p>
+                    <a class="btn btn-primary btn-faux-raised btn-raised btn-small" id="sign-in-btn">
+                        <div class="inner-btn">
+                            SIGN IN
+                        </div>
+                    </a>
+                </div>
+
+                <div class="activation-action text-center hidden" id="go-pro">
+                    <p class="active-text" id="daily-free-limit-active-text">
+                        Go Pro for an uninterrupted Gom
+                    </p>
+                    <a class="btn btn-primary btn-faux-raised btn-raised btn-small" id="go-pro-btn">
+                        <div class="inner-btn">
+                            GO PRO
+                        </div>
+                    </a>
+                </div>
+                <div class="slider hidden">
+                    <p id="active-text">
+                        ENCRYPTION EVERYWHERE
+                    </p>
+                    <input type="checkbox" checked id="switch">
+                    <p id="activation-btm-subtext">
+                        <small id="activation-btm-subtext-small">
+                            (Turn off for more speed)
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

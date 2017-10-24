@@ -1,0 +1,26 @@
+2017/10/24-16:58:40.396 2262 Reusing MANIFEST /home/bhaskar/.config/google-chrome/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
+2017/10/24-16:58:40.396 2262 Recovering log #304
+2017/10/24-16:58:40.437 2262 Reusing old log /home/bhaskar/.config/google-chrome/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/000304.log 
+2017/10/24-16:59:42.458 2359 Level-0 table #308: started
+2017/10/24-16:59:42.617 2359 Level-0 table #308: 2873649 bytes OK
+2017/10/24-16:59:42.662 2359 Delete type=0 #304
+2017/10/24-16:59:43.839 2359 Level-0 table #310: started
+2017/10/24-16:59:43.960 2359 Level-0 table #310: 2873369 bytes OK
+2017/10/24-16:59:44.016 2359 Delete type=0 #307
+2017/10/24-17:01:05.751 2359 Level-0 table #312: started
+2017/10/24-17:01:06.020 2359 Level-0 table #312: 2873443 bytes OK
+2017/10/24-17:01:06.176 2359 Delete type=0 #309
+2017/10/24-17:01:06.177 2359 Compacting 4@0 + 2@1 files
+2017/10/24-17:01:06.400 2359 Generated table #313@0: 1 keys, 2873443 bytes
+2017/10/24-17:01:06.445 2359 Generated table #314@0: 4 keys, 394 bytes
+2017/10/24-17:01:06.445 2359 Compacted 4@0 + 2@1 files => 2873837 bytes
+2017/10/24-17:01:06.501 2359 compacted to: files[ 0 2 5 0 0 0 0 ]
+2017/10/24-17:01:06.501 2359 Delete type=2 #303
+2017/10/24-17:01:06.501 2359 Delete type=2 #305
+2017/10/24-17:01:06.502 2359 Delete type=2 #310
+2017/10/24-17:01:06.503 2359 Delete type=2 #302
+2017/10/24-17:01:06.504 2359 Delete type=2 #312
+2017/10/24-17:01:06.504 2359 Delete type=2 #308
+2017/10/24-17:59:42.327 2359 Level-0 table #316: started
+2017/10/24-17:59:42.468 2359 Level-0 table #316: 2874121 bytes OK
+2017/10/24-17:59:42.535 2359 Delete type=0 #311

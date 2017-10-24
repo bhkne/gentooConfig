@@ -1,0 +1,42 @@
+.tkl_3yZQP.tkl_20EaG {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+.tkl_3yZQP {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,.75);
+    padding: 12px;
+    z-index: 99999;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: .3pt;
+    -webkit-transform: translateY(-200px);
+    transform: translateY(-200px);
+    -webkit-transition: -webkit-transform .4s ease;
+    transition: -webkit-transform .4s ease;
+    transition: transform .4s ease;
+    transition: transform .4s ease,-webkit-transform .4s ease;
+}
+
+.tkl_para {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.tkl_3yZQP .tkl_3SvoX {
+    width: 28px;
+    height: 28px;
+    background: red;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    margin-top: -14px;
+    background: transparent url('chrome-extension://__MSG_@@extension_id__/styles/images/notification-close.png') no-repeat 50%;
+    cursor: pointer;
+}

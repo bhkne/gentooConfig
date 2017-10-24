@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="nubela">
+        <title>Pricing</title>
+
+        <link href="/vendor/bower/snackbarjs/dist/snackbar.min.css" rel="stylesheet">
+        <link href="/vendor/material.min.css" rel="stylesheet">
+        <link href="/vendor/bower/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="/vendor/ripples.min.css" rel="stylesheet">
+        <link href="/vendor/material.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Open+Sans:300italic,400italic,600italic,700italic,700,300,600,400' rel='stylesheet' type='text/css'>
+
+        <script src="/vendor/aes.js"></script>
+        <script src="/vendor/bower/jquery/dist/jquery.min.js"></script>
+        <script src="/vendor/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/vendor/bower/parsleyjs/dist/parsley.min.js"></script>
+        <script src="/vendor/bower/spin.js/spin.js"></script>
+
+        <script src="/vendor/bower/ladda/dist/ladda.min.js"></script>
+        <link href="/vendor/bower/ladda/dist/ladda-themeless.min.css" rel="stylesheet" media="screen">
+
+        <!-- bootstrap switch -->
+        <link href="/vendor/bower/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+        <script src="/vendor/bower/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+
+        <script src="/vendor/oauth2/oauth2.js"></script>
+        <script src="/vendor/bower/snackbarjs/dist/snackbar.min.js"></script>
+        <script src="/vendor/analytics.js"></script>
+        <script src="/pages/js/pricing.js"></script>
+
+        <link href="/pages/css/main.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <nav class="navbar custom-navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" id="logo-anchor">
+                            <span class="invis-rounded" id="logo">
+                                GOM<span>VPN</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="text-center" id="pricing-intro">
+                        <h1>
+                            Go Pro to keep <strong>Gom<strong> <span class="green">always-on</span>
+                        </h1>
+                        <p class="lead">
+                            And get super-fast 1000mbit speeds for streaming and downloads!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center" id="pricing-section">
+                <div class="col-sm-4">
+                    <div class="pricing-container">
+                        <div class="pricing-header">
+                            <p>
+                                Subscribe, use, and earn money
+                            </p>
+                            <h2>
+                                Gom <strong>Gold</strong>
+                            </h2>
+                        </div>
+                        <div class="pricing-price vertical-align">
+                            <div>
+                                <span id="pricing-price">
+                                    <span id="gold-price">$14.99</span>
+                                    <small>
+                                        /mo
+                                    </small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="attr">
+                            <p>
+                                <span class="gold">Earn $2.00 / month</span> for new referral
+                            </p>
+                            <p>
+                                no time limit
+                            </p>
+                            <p>
+                                private IP
+                            </p>
+                            <p>
+                                super-fast 1000mbit servers
+                            </p>
+                        </div>
+
+                        <div class="cta">
+                            <a target="_blank" class="btn btn-simple btn-gray btn-block" id="learn-more">
+                                LEARN MORE
+                            </a>
+                            <a class="btn btn-small btn-primary btn-faux-raised btn-raised btn-block" id="gold-btn">
+                                <div data-style="expand-right" class="ladda-button inner-btn" id="gold-ladda-btn">
+                                    UPGRADE
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-8">
+                    <div class="pricing-container focused text-center">
+                        <div class="logo-bounce vertical-align">
+                            <img src="/assets/images/dark_blue_flying_women.png">
+                        </div>
+                        <div class="pricing-header">
+                            <p>
+                                Subscribe and use immediately
+                            </p>
+                            <h2>
+                                Gom <strong>Pro</strong>
+                            </h2>
+                        </div>
+                        <div class="pricing-price vertical-align">
+                            <div>
+                                <div id="extra-2-months">
+                                    <span class="badge white">
+                                        Free extra 2 months!
+                                    </span>
+                                </div>
+                                <span id="pricing-price">
+                                    <span id="pro-price">$4.99</span>
+                                    <small id="term-duration">
+                                        /mo
+                                    </small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="attr">
+                            <p>
+                                super-fast 1000mbit servers
+                            </p>
+                            <p>
+                                no time limit
+                            </p>
+                        </div>
+
+                        <div class="cta">
+                            <div>
+                                <select id="pro-select">
+                                    <option value="supreme" default>Yearly</option>
+                                    <option value="pro">Monthly</option>
+                                    <option value="life">Lifetime (one-time payment)</option>
+                                </select>
+                            </div>
+                            <a class="btn btn-small btn-primary btn-faux-raised btn-raised btn-block" id="pro-btn">
+                                <div data-style="expand-right" class="ladda-button inner-btn" id="pro-ladda-btn">
+                                    UPGRADE
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

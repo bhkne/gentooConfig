@@ -1,0 +1,48 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "scripts/jquery-2.1.1.min.js", "scripts/fingerprint2.min.js", "scripts/background.js" ]
+   },
+   "content_scripts": [ {
+      "css": [ "styles/otp_pop.css", "styles/irctc.css", "scripts/css/jquery-impromptu.min.css" ],
+      "js": [ "scripts/jquery-2.1.1.min.js", "scripts/jquery-impromptu.min.js", "scripts/aes.js", "scripts/content_script.js" ],
+      "matches": [ "https://*.irctc.co.in/*", "http://*.irctc.co.in/*" ]
+   }, {
+      "css": [ "styles/otp_pop.css" ],
+      "js": [ "scripts/jquery-2.1.1.min.js", "scripts/aes.js", "scripts/bigstuff.js", "scripts/track.js", "scripts/sdtrack.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   }, {
+      "all_frames": true,
+      "js": [ "scripts/jquery-2.1.1.min.js", "scripts/aes.js", "scripts/smallstuff.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   }, {
+      "js": [ "scripts/jquery-2.1.1.min.js", "scripts/content_script_1.js" ],
+      "matches": [ "https://*.makkhichoose.com/tatkalnow", "http://*.makkhichoose.com/tatkalnow" ]
+   } ],
+   "content_security_policy": "script-src 'self' https://www.google-analytics.com https://d2xwmjc4uy2hr5.cloudfront.net; object-src 'self'",
+   "description": "Book irctc tatkal tickets instantly and effortlessly, and beat the rush",
+   "icons": {
+      "128": "makkhi_IRCTC_128.png",
+      "16": "makkhi_IRCTC_16.png",
+      "32": "makkhi_IRCTC_32.png",
+      "48": "makkhi_IRCTC_48.png",
+      "512": "makkhi_IRCTC.png",
+      "96": "makkhi_IRCTC_96.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjuVp6xzSej/jp5GJKyrLNIMsFmcI1xtBHRhpdyv8qFkpnRJT4EHmmcYXCZXfkp2UyXKNYmbKf669OWKKe2+kpJESTdRN2j8ei5x39QRJFVNe0YL8wrCOoy75wicwAErgiFBtQ19eBzggkR3Fv7j9n4GD08bMPEcwX3DAS8GduRiYKG3rGrBWdFCbu3KHKj5LC9pNk1jIZhmNHqGdyQLutuj6buRHsxuLfs0iYmhBk+Vy2zG1J+xmilueQ7sORQaIV33oXaL9pwR8FnaZcxiTjT1XDj6LH2qfPi1oKwNh44Z5Onv28oWn1gseT59YFQXISyPNFP+3Lq3brqRaCRERYwIDAQAB",
+   "manifest_version": 2,
+   "name": "Tatkal Ticket Now",
+   "optional_permissions": [ "notifications", "webRequest", "webRequestBlocking" ],
+   "page_action": {
+      "default_icon": "styles/images/Travel-and-Transportation-11.png",
+      "default_popup": "popup.html",
+      "default_title": "TatkalNow"
+   },
+   "permissions": [ "tabs", "https://*/*", "http://*/*", "storage", "gcm" ],
+   "short_name": "TatkalNow",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.1.11",
+   "web_accessible_resources": [ "styles/images/notification-close.png", "info_icon.png", "logo.png", "exchange.png", "cartout.png", "makkhi_IRCTC.png", "styles/images/Travel-and-Transportation-11.png", "scripts/paytm.js", "chrome_store_review_goldbig.png" ]
+}

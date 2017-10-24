@@ -1,0 +1,29 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "browser_action": {
+      "default_icon": "images/fvd.single.icon.png",
+      "default_popup": "popup.html",
+      "default_title": "__MSG_extension_hint__"
+   },
+   "default_locale": "en",
+   "description": "Popular Video Downloader. Downloads most popular media formats like flash, videos, audios etc..",
+   "icons": {
+      "128": "images/fvd.single.main_128.png",
+      "16": "images/fvd.single.main_16.png",
+      "24": "images/fvd.single.main_24.png",
+      "32": "images/fvd.single.main_32.png",
+      "48": "images/fvd.single.main_48.png",
+      "64": "images/fvd.single.main_64.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqPtICeN9YHEIc3Z6nfFTk8se8BAJsv9N8IICFXiIzn66RpELTA9Yfdvqon3fdHmE5geqccyEGbASRbD67JSFZ8QWwN2QdHx2fMxrCkR3RNjGv1YmLm0oLcjuRV+iX7bbxZ7Wt4gkFgdzIakWZEn5o0eXTsPBMEv8ScDNKLzwGZpxDxaQ/cBP7gloXqDHi1APJGMpvmouYiRmC1gtQ4h+JLaSPCTckxc6tTfLg4afPFuKXF7Ia5/qHnCZWQ7naP9nJhftO6OG/D+p2lzdB5u+bqfF+WKIze3rSZWqJAi/CV1P6nLG3QAwZTwxisD4h4hwOdigw+1UvnDhRX65hoSfnwIDAQAB",
+   "manifest_version": 2,
+   "name": "Flash Video Downloader",
+   "options_page": "opt_page.html",
+   "permissions": [ "tabs", "webRequest", "webNavigation", "http://*/*", "https://*/*", "cookies", "webRequestBlocking", "unlimitedStorage", "storage", "management", "downloads" ],
+   "short_name": "Video Downloader",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "29.4.1",
+   "web_accessible_resources": [ "*" ]
+}

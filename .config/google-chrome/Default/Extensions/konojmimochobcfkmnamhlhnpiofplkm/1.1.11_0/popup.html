@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Makkhi irctc</title>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<link rel="stylesheet" href="styles/menu_style.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="styles/style_2.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="styles/jquery-ui.min.css" />
+		<link rel="stylesheet" href="scripts/css/jquery-impromptu.min.css" />
+		
+		<script src="scripts/jquery-2.1.1.min.js"></script>
+		<script src="scripts/jquery-ui.min.js"></script>
+		<script src="scripts/jquery-impromptu.min.js"></script>
+		<script src="scripts/pnr_status.js"></script>
+		<script src="scripts/popup.js"></script>
+	</head>
+	<body style="min-width: 540px;">
+		<header>
+			<nav>
+				<ul class="nav">
+					<li id="menu_ticket_booking" class="active"><a href="#">Ticket Booking</a></li>
+					<li id="menu_pnr" style="display: none;"><a href="#">PNR Status</a></li>
+					<li id="menu_payment_process"><a href="#">Payment Process</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id="div_tkt_booking" style="display: block;">
+			<table style="width: 100%;">
+				<!-- Below tr is OTP automation app link -->
+				<tr>
+					<td style="width: 60%;">
+						<div id="divOtpInfo" style="padding-top: 10px; padding-right: 10px; padding-left: 10px;">
+							<p><span style="font-weight: bold;">SMS OTP Automation</span></p>
+							<p>Install "<span style="font-style: italic;">IRCTC Agent Connect</span>" Android App <img id="aplaystorelink" style="vertical-align:middle" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" width="160" height="62"></p>
+							<p>Your unique app code: <span id="spnUserID" class="uniq_id"></span></p>
+						</div>
+					</td>
+				</tr>
+				<!-- Below tr is for sale promotion -->
+				<!-- <tr>
+					<td>
+						<div id="gisSpace" style="padding-top: 10px; padding-right: 10px; padding-left: 10px; visibility: hidden;">
+							<a id="gisSpaceLink" href="#">Shop and win 1 year UNLIMITED TatkalNow subscription worth Rs. 20000!</a>
+						</div>
+					</td>
+				</tr> -->
+
+				<tr>
+					<td>
+						<div id="freeTokenMsg" style="padding-top: 10px; padding-right: 10px; padding-left: 10px; visibility: hidden;">
+							<a id="freeTokenLink" href="#">Install MakkhiChoose and get 2 free Tatkal tokens!</a>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<!--<td style="width: 50%;">
+						<a href="http://www.makkhichoose.com/agentlisting?l=eng" target='_blank'>Agent? Book tickets and earn &#x20b9;15000+</a>
+					</td>-->
+					<!-- <td style="width: 50%;">
+						<a id="dealLink" href="http://makkhichoose.com/superdeals?utm_source=tatkalnow&utm_medium=popup" target='_blank'></a>
+						<a href="https://imjo.in/NsvwW" target="_blank">Go Cashless | पेमेंट लो बिना नोट के</a>
+					</td> -->
+					<td style="width: 50%;">
+						<div class="res_btn" style="padding-top: 10px; padding-right: 10px;">
+							<button id="btn_stop_booking">Stop Booking</button>
+							<button id="new_ticket">Add Ticket</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<hr>
+			
+			<div id='ticket_list'>
+			</div>
+		</div>
+		
+		<div id="div_pnr_status" style="display: none;" class="subnav">
+			<div id="pnr_input">
+				<input type='text' name='input_pnr' id='input_pnr'/>
+				<button id="btn_getpnrstatus">Get Status</button>
+			</div>
+			
+			<div id="pnr_show_status">
+				
+			</div>
+		</div>
+
+		<div id="div_payment_process" style="display: none;" class="subnav">
+			<div class='subnav'>
+				<table>
+					<tr>
+						<td>Payment ID</td>
+						<td><input type='text' name='input_payment_mojo_id' id='input_payment_mojo_id'/></td>
+					</tr>
+					<tr>
+						<td>Email ID</td>
+						<td><input type='text' name='input_payment_email_id' id='input_payment_email_id'/></td>
+					</tr>
+					<tr>
+						<td><button id="btn_process_payment">Increase Count</button></td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="payment_show_status">
+				
+			</div>
+		</div>
+
+		<div>
+			<span>Tatkal Booking Remaining:</span>&nbsp;<span id="span_free_rem"></span>&nbsp;<a id="buy_more_tickets" href="#">Buy More</a>
+			<img src="info_icon.png" id="imgHelp" width="16px" height="16px" title="Click to know more"/>
+		</div>
+		<div id="versionnumber"></div>
+		<div class="modal"><!-- Place at bottom of page --></div>
+		<div>
+			<strong>Powered by <a href='http://www.makkhichoose.com/' target='_blank'>MakkhiChoose</a><img src='logo.png' width='20%'/></strong>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+#loginFormId > div.grid_16.alpha.g_box > div:nth-child(4) {
+	position:static !important;
+}
+
+#cimage{
+	height:150% !important;
+}
+
+#bkg-captcha, .bkg-captcha {
+    width: 125%;
+}
+
+#loginFormId > div.grid_16.alpha.g_box {
+	height:800px;
+	width:800px;
+}
+
+#loginFormId input.loginCaptcha, input#j_captcha{
+	font-weight:bold;
+	font-size:2em;
+}
+
+marquee {
+	display: none;
+}
+
+.labeltxt.captchacls {
+	display: none !important;
+}
+
+.visited-row {
+    background-color: yellow !important;
+}
+
+
+.tn__coupons-pop-up {
+    border-radius: 5px;
+    box-sizing: border-box;
+    max-width: 320px;
+    height: 191px;
+    width: 100%;
+    padding: 8px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 11;
+    cursor: pointer;
+}
+.tn__coupons-pop-up, .tn__coupons-pop-up.__coupon-fnb {
+    box-shadow: none!important;
+    background-color: transparent!important;
+}
+
+.tn__coupons-pop-up .tn__coupons-details-image {
+    max-width: 295px;
+    width: 100%;
+    height: 95px;
+    display: inline-block;
+    text-align: center;
+    margin: 10px auto 0;
+}
+
+.tn__coupons-pop-up .__icon.__close {
+    fill: #000;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}

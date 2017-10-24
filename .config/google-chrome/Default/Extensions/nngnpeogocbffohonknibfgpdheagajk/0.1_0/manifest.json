@@ -1,0 +1,17 @@
+{
+   "app": {
+      "launch": {
+         "web_url": "http://ctrlq.org/irctc/"
+      },
+      "urls": [ "http://ctrlq.org/irctc/" ]
+   },
+   "description": "Easily and quickly book train tickets on the IRCTC websites.",
+   "icons": {
+      "128": "icon.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqYozRwBtSz16oVpPzI5gkkiQyt3Dl0tNhGI7eC0m099FHPze6QGHjCKmvIpTIEK+/yMqYIeY/n8IpGPy8jiNyE5N2Nyb+9MXbBri5uiQpvW/1OGOwk1f1UDfVQ4s/+Kmm9LnmT9Aim79KQsdzYhI97BIt4XHtSh5XrQ/9sDKHfXt1YT78OtjKHjs9omjI/58IzHshDh65uLmoSX4GbPj15WggQhuQF/7oCHK4Y1bsfyIYgCMdwk6QTl0dPLVR4qsmi2z18dcBExvfueanCCNSm8f9IEyzKSeU3nAy2ZRUWFP1St7BmW2MQ89h6wINNfNZEOVt+nA3xrGnBqsjMaIfwIDAQAB",
+   "manifest_version": 2,
+   "name": "IRCTC Magic Autofill",
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "0.1"
+}
