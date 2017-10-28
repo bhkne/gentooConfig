@@ -1,0 +1,6 @@
+#Set the dns_domain_lo variable to selected domain name
+dns_domain_lo="homenetwork"
+
+modules_wlan0="wpa_supplicant dhcpcd"
+config_wlan0="dhcp"
+
